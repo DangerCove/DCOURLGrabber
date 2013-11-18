@@ -168,7 +168,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
         return nil;
     }
     
-    return [self grabFromBundleID:self.lastActiveBundleID withError:error];
+    return [self grabURLFromBundleID:self.lastActiveBundleID withError:error];
 }
 
 @end

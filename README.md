@@ -15,7 +15,7 @@ DCOURLGrabber is used by [Tapetrap](http://www.dangercove.com/tapetrap).
 
 # Setup
 
-## [Cocoapods](http://cocoapods.org)
+## Via [cocoapods](http://cocoapods.org)
 
 Simply add the following line to your Podfile:
 
@@ -26,6 +26,36 @@ Then run `pod install` and you're set.
 ## Manually
 
 Clone this repo and add both the source files and AppleScripts to your project.
+
+# Usage
+
+## Get URL from specific bundle ID
+
+To simply retrieve the URL from a browser (Chrome) you have running, use the following:
+
+    DCOURLGrabber *grabber = [[DCOURLGrabber alloc] init];
+    NSURL *url = [grabber grabURLFromBundleID:@"com.google.Chrome" withError:&grabError];
+    if(grabError) {
+        NSLog(@"Failed to retrieve URL: %@", grabError);
+    } else {
+        NSLog(@"Got URL: %@", url.absoluteString);
+    }
+
+## Retrieve URL by monitoring app switches
+
+First setup monitoring like this:
+
+    DCOURLGrabber *grabber = [[DCOURLGrabber alloc] init];
+    [grabber startMonitoring];
+
+Then simply grab the URL when you want, like so:
+
+    NSURL *url = [grabber grabURLWithError:&grabError];
+    if(grabError) {
+        NSLog(@"Failed to retrieve URL: %@", grabError);
+    } else {
+        NSLog(@"Got URL: %@", url.absoluteString);
+    }
 
 # Known Issues
 
