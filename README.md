@@ -61,11 +61,13 @@ Then simply grab the URL when you want, like so:
 
 * Firefox only supports a rather unelegant way of getting the URL via AppleScript. 
 
-# Contributions and Things to add
+# Contributions and things to add
 
-Things I'd like to add:
+## A way to extend supported bundle IDs
 
-* None at the moment. Maybe more browsers or other apps that work with URLs?
+AppleScripts are loaded by checking the app bundle for some.bundle.id.scpt. Simply adding a new file to your app bundle should add it to DCOURLGrabber as well.
+
+Adding a method to expand the list of supported bundle IDs should take care of the rest.
 
 # License
 
