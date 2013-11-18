@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, DCOURLGrabberErrorCode) {
  *
  *  @return Returns the `NSURL`.
  */
-- (NSURL *)grabFromBundleID:(NSString *)bundleID withError:(NSError **)error;
+- (NSURL *)grabURLFromBundleID:(NSString *)bundleID withError:(NSError **)error;
 
 /**
  *  Grab the the URL of the browser that was last active.
@@ -48,6 +48,6 @@ typedef NS_ENUM(NSInteger, DCOURLGrabberErrorCode) {
  *
  *  @return Returns the `NSURL`.
  */
-- (NSURL *)grabWithURLWithError:(NSError **)error;
+- (NSURL *)grabURLWithError:(NSError **)error;
 
 @end

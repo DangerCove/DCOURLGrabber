@@ -125,7 +125,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
 
 #pragma mark - Actual URL Grabbing
 
-- (NSURL *)grabFromBundleID:(NSString *)bundleID withError:(NSError *__autoreleasing *)error {
+- (NSURL *)grabURLFromBundleID:(NSString *)bundleID withError:(NSError *__autoreleasing *)error {
 
     // Check if applescript is available
     NSString *scriptPath = [[NSBundle mainBundle] pathForResource:self.lastActiveBundleID ofType:@"scpt"];
@@ -162,7 +162,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
 //    }
 }
 
-- (NSURL *)grabWithURLWithError:(NSError *__autoreleasing *)error {
+- (NSURL *)grabURLWithError:(NSError *__autoreleasing *)error {
     if(!self.lastActiveBundleID) { // No compatible app was switched to, or the bundle hasn't been set
         *error = [self errorForCode:DCOURLGrabberErrorCodeBundleIDNotSet withDescription:kDCOURLGrabberErrorBundleIDNotSet];
         return nil;
