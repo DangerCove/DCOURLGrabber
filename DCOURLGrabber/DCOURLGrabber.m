@@ -25,7 +25,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
 /* The bundle ID of the app that was activated last. */
 @property (copy) NSString *lastActiveBundleID;
 
-/* Registers whether the class is monitoring. */
+/* Registers whether the object is monitoring app switches. */
 @property (assign, getter = isMonitoring) BOOL monitoring;
 
 /* 
@@ -41,7 +41,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
 - (void)appDidActivate:(NSNotification *)notification;
 
 /* 
- * Returns a new error with the correct error domain.
+ * Returns a new error with the DCOURLGrabber error domain.
  *
  * @param code The `DCOURLErrorCode` that corresponds with the error.
  * @param message The localized description for the error.
@@ -66,15 +66,6 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
                               nil];
     });
     return supportedBundleIDs;
-}
-
-+ (id)sharedInstance {
-    static id sharedInstance = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedInstance = [[self alloc] init];
-    });
-    return sharedInstance;
 }
 
 #pragma mark - Overrides
@@ -145,8 +136,7 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
         return nil;
     }
     
-    // Grab URL
-    // Execute the AppleScript
+    // Grab URL using AppleScript
     NSDictionary *scriptExecuteError;
     NSAppleEventDescriptor *result = [script executeAndReturnError:&scriptExecuteError];
     if(scriptExecuteError) {
@@ -156,10 +146,8 @@ NSString        *   const   kDCOURLGrabberErrorScriptExecutionFailed    = @"Fail
         return nil;
     }
     
-    // Check if we got something
-//    if(result.stringValue && result.stringValue.length > 0) {
+    // Return what we got
     return [[NSURL alloc] initWithString:result.stringValue];
-//    }
 }
 
 - (NSURL *)grabURLWithError:(NSError *__autoreleasing *)error {

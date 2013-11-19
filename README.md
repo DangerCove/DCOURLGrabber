@@ -11,7 +11,7 @@ It monitors when the user switches apps and takes note of which browser was last
 
 # Status
 
-DCOURLGrabber is used by [Tapetrap](http://www.dangercove.com/tapetrap).
+DCOURLGrabber is used in [Tapetrap](http://www.dangercove.com/tapetrap).
 
 # Setup
 

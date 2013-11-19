@@ -32,9 +32,9 @@ typedef NS_ENUM(NSInteger, DCOURLGrabberErrorCode) {
 - (void)stopMonitoring;
 
 /**
- *  Grab the URL from an app with a specific bundle ID.
+ *  Grab the URL from an app with the specified bundle ID.
  *
- *  @param bundleID The bundle ID to grab a URL from.
+ *  @param bundleID The bundle ID to grab the URL from.
  *  @param error Will contain the error when grabbing fails.
  *
  *  @return Returns the `NSURL`.
