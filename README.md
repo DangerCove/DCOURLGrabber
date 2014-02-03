@@ -19,7 +19,7 @@ DCOURLGrabber is used in [Tapetrap](http://www.dangercove.com/tapetrap).
 
 Simply add the following line to your Podfile:
 
-    pod 'DCOURLGrabber', :git => 'git@github.com:DangerCove/DCOURLGrabber.git'
+    pod 'DCOURLGrabber'
 
 Then run `pod install` and you're set.
 
